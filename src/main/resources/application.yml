@@ -1,0 +1,15 @@
+api:
+  endpoint:
+    baseUrl: /api/v1
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:leetcode
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    showSql: true
+  h2:
+    console:
+      enabled: true
