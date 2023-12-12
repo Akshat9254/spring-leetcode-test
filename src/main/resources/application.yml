@@ -2,6 +2,12 @@ api:
   endpoint:
     baseUrl: /api/v1
 
+app:
+  security:
+    jwt:
+      secret: a0d5f99b7465d9330a33019de6cbb07f850e330001301b4ebf01e07ebdd39f14
+      expiration: 86400000
+
 spring:
   datasource:
     url: jdbc:h2:mem:leetcode
