@@ -5,6 +5,8 @@ import com.clone.leetcode.auth.dto.LoginRequest;
 import com.clone.leetcode.auth.dto.RegisterRequest;
 import com.clone.leetcode.security.jwt.JwtService;
 import com.clone.leetcode.system.exception.ResourceNotFoundException;
+import com.clone.leetcode.user.converter.UserToUserDtoConverter;
+import com.clone.leetcode.user.dto.UserDto;
 import com.clone.leetcode.user.model.Role;
 import com.clone.leetcode.user.model.User;
 import com.clone.leetcode.user.repository.UserRepository;
@@ -21,6 +23,7 @@ public class AuthService {
     private final UserRepository userRepository;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+    private final UserToUserDtoConverter userToUserDtoConverter;
 
     public AuthResponse register(RegisterRequest request) {
         User user = User.builder()
@@ -30,10 +33,10 @@ public class AuthService {
                 .role(Role.USER)
                 .build();
 
-        userRepository.save(user);
+        User savedUser = userRepository.save(user);
         String jwt = jwtService.generateToken(user);
-
-        return new AuthResponse(jwt);
+        UserDto userDto = userToUserDtoConverter.convert(savedUser);
+        return new AuthResponse(userDto, jwt);
     }
 
     public AuthResponse login(LoginRequest request) {
@@ -47,6 +50,7 @@ public class AuthService {
         User user = userRepository.findByEmail(request.email())
                 .orElseThrow(() -> new ResourceNotFoundException("User", "email", request.email()));
         String jwt = jwtService.generateToken(user);
-        return new AuthResponse(jwt);
+        UserDto userDto = userToUserDtoConverter.convert(user);
+        return new AuthResponse(userDto, jwt);
     }
 }

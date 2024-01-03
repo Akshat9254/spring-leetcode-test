@@ -5,6 +5,7 @@ import com.clone.leetcode.auth.dto.LoginRequest;
 import com.clone.leetcode.auth.dto.RegisterRequest;
 import com.clone.leetcode.auth.service.AuthService;
 import com.clone.leetcode.system.response.Response;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +22,7 @@ public class AuthController {
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.OK)
-    public Response<AuthResponse> register(@RequestBody RegisterRequest request) {
+    public Response<AuthResponse> register(@RequestBody @Valid RegisterRequest request) {
         AuthResponse authResponse = authService.register(request);
         return new Response<>(true, HttpStatus.OK.value(),
                 "Registration Success", authResponse);

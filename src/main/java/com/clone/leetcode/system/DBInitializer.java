@@ -49,49 +49,49 @@ public class DBInitializer implements CommandLineRunner {
                 .build();
 
         Post post4 = Post.builder()
-                .title("Post 4")
+                .title("Google L3 Interview Experience")
                 .content("Post 4 content")
                 .category(PostCategory.INTERVIEW_EXPERIENCE)
                 .tags(Set.of(googleTag))
                 .build();
 
         Post post5 = Post.builder()
-                .title("Post 5")
+                .title("Meta - System Design")
                 .content("Post 5 content")
                 .category(PostCategory.INTERVIEW_EXPERIENCE)
                 .tags(Set.of(amazonTag))
                 .build();
 
         Post post6 = Post.builder()
-                .title("Post 6")
+                .title("Placements hiring 2024 batch")
                 .content("Post 6 content")
                 .category(PostCategory.INTERVIEW_EXPERIENCE)
                 .tags(Set.of(onlineAssessmentTag))
                 .build();
 
         Post post7 = Post.builder()
-                .title("Post 7")
+                .title("Meta Phone Screen E4")
                 .content("Post 7 content")
                 .category(PostCategory.INTERVIEW_EXPERIENCE)
                 .tags(Set.of(onlineAssessmentTag, amazonTag, googleTag))
                 .build();
 
         Post post8 = Post.builder()
-                .title("Post 8")
+                .title("Rethinking LeetCode Streaks: Quality Over Quantity")
                 .content("Post 8 content")
                 .category(PostCategory.INTERVIEW_EXPERIENCE)
                 .tags(Set.of(googleTag, amazonTag))
                 .build();
 
         Post post9 = Post.builder()
-                .title("Post 9")
+                .title("E4/E5 Phone Screen Interview")
                 .content("Post 9 content")
                 .category(PostCategory.INTERVIEW_EXPERIENCE)
                 .tags(Set.of())
                 .build();
 
         Post post10 = Post.builder()
-                .title("Post 10")
+                .title("Google Online Assessment Questions")
                 .content("Post 10 content")
                 .category(PostCategory.INTERVIEW_EXPERIENCE)
                 .tags(Set.of(onlineAssessmentTag, amazonTag))
